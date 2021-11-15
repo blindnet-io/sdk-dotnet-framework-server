@@ -99,7 +99,27 @@ namespace Blindnet
 
             return CreateAndSign(AppSettings.RegularTokenName, claims, DateTime.Now.ToUniversalTime().AddHours(12));
         }
-        
+
+        public string CreateSymmetricKeyToken(string dataId, string groupId)
+        {
+            var claims = new List<Claim>
+            {
+                new Claim(AppSettings.TokenAppIDParamName, _appID)
+            };
+
+            if (!string.IsNullOrEmpty(dataId))
+            {
+                claims.Add(new Claim(AppSettings.TokenDataIDParamName, dataId));
+            }
+
+            if (!string.IsNullOrEmpty(groupId))
+            {
+                claims.Add(new Claim(AppSettings.TokenUserGroupIDParamName, groupId));
+            }
+
+            return CreateAndSign(AppSettings.SymmetricKeyTokenName, claims, DateTime.Now.ToUniversalTime().AddHours(3));
+        }
+
         private void RefreshClientToken()
         {
             var claims = new List<Claim>
@@ -269,7 +289,7 @@ namespace Blindnet
             {
                 return true;
             }
-            else 
+            else
             {
                 throw new BlindnetException(errMsg + ". API response was " + httpCode);
             }
