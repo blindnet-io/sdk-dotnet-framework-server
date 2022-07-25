@@ -1,18 +1,17 @@
-﻿using Blindnet.Utils;
-using Blindnet.Exceptions;
+﻿using Blindnet.Exceptions;
+using Blindnet.Utils;
 using Microsoft.IdentityModel.Tokens;
+using Newtonsoft.Json;
 using Org.BouncyCastle.Crypto.Parameters;
+using Org.BouncyCastle.Crypto.Signers;
 using System;
 using System.Collections.Generic;
-using System.IdentityModel.Tokens.Jwt;
 using System.IO;
-using System.Security.Claims;
 using System.Net;
 using System.Net.Http;
-using System.Threading.Tasks;
-using Newtonsoft.Json;
-using Org.BouncyCastle.Crypto.Signers;
+using System.Security.Claims;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace Blindnet
 {
