@@ -1,18 +1,17 @@
-﻿using Blindnet.Utils;
-using Blindnet.Exceptions;
+﻿using Blindnet.Exceptions;
+using Blindnet.Utils;
 using Microsoft.IdentityModel.Tokens;
+using Newtonsoft.Json;
 using Org.BouncyCastle.Crypto.Parameters;
+using Org.BouncyCastle.Crypto.Signers;
 using System;
 using System.Collections.Generic;
-using System.IdentityModel.Tokens.Jwt;
 using System.IO;
-using System.Security.Claims;
 using System.Net;
 using System.Net.Http;
-using System.Threading.Tasks;
-using Newtonsoft.Json;
-using Org.BouncyCastle.Crypto.Signers;
+using System.Security.Claims;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace Blindnet
 {
@@ -99,7 +98,27 @@ namespace Blindnet
 
             return CreateAndSign(AppSettings.RegularTokenName, claims, DateTime.Now.ToUniversalTime().AddHours(12));
         }
-        
+
+        public string CreateSymmetricKeyToken(string dataId, string groupId)
+        {
+            var claims = new List<Claim>
+            {
+                new Claim(AppSettings.TokenAppIDParamName, _appID)
+            };
+
+            if (!string.IsNullOrEmpty(dataId))
+            {
+                claims.Add(new Claim(AppSettings.TokenDataIDParamName, dataId));
+            }
+
+            if (!string.IsNullOrEmpty(groupId))
+            {
+                claims.Add(new Claim(AppSettings.TokenUserGroupIDParamName, groupId));
+            }
+
+            return CreateAndSign(AppSettings.SymmetricKeyTokenName, claims, DateTime.Now.ToUniversalTime().AddHours(3));
+        }
+
         private void RefreshClientToken()
         {
             var claims = new List<Claim>
@@ -269,7 +288,7 @@ namespace Blindnet
             {
                 return true;
             }
-            else 
+            else
             {
                 throw new BlindnetException(errMsg + ". API response was " + httpCode);
             }
