@@ -1,5 +1,5 @@
 <h1 align="center">
-  blindnet devkit<br />
+  blindnet encryption engine<br />
   .Net Framework SDK
 </h1>
 
@@ -15,9 +15,9 @@
 </p>
 
 <p align="center">
-  <a href="https://blindnet.dev/docs">Documentation</a>
+  <a href="https://blindnet.dev/docs/encryption">Documentation</a>
   &nbsp;•&nbsp;
-  <a href="https://github.com/blindnet-io/{project-short-name}/issues">Submit an Issue</a>
+  <a href="https://github.com/blindnet-io/sdk-dotnet-framework-server/issues">Submit an Issue</a>
   &nbsp;•&nbsp;
   <a href="https://join.slack.com/t/blindnet/shared_invite/zt-1arqlhqt3-A8dPYXLbrnqz1ZKsz6ItOg">Online Chat</a>
   <br>
@@ -26,14 +26,14 @@
 
 ## About
 
-This is the .Net Framework [server-side SDK](https://docs.blindnet.io/docs/glossary#server-side-sdk) component of [blindnet devkit][devkit] allowing you to:
+This is the .Net Framework [server-side SDK](https://blindnet.dev/docs/references/glossary#server-side-sdk) component of the blindnet encryption engine allowing you to:
 
-- Generate [authentication tokens](https://docs.blindnet.io/docs/glossary#authentication-token) to allow users to access blindnet.
+- Generate [authentication tokens](https://blindnet.dev/docs/references/glossary#authentication-token) to allow users to access blindnet.
 - Manage application users and data on blindnet.
 
 ## Get Started
 
-:rocket: Check out our [Quick Start Guide](https://blindnet.dev/docs/quickstart) to get started in a snap.
+:rocket: Check out our [Quick Start Guide](https://blindnet.dev/docs/encryption/quickstart) to get started in a snap.
 
 ## Installation
 
@@ -156,7 +156,6 @@ The blindnet devkit sdk-dotnet-framework-server is available under [MIT][license
 
 <!-- common URLs -->
 
-[devkit]: https://github.com/blindnet-io/blindnet.dev
 [openness]: https://github.com/blindnet-io/openness-framework
 [product]: https://github.com/blindnet-io/product-management
 [request]: https://github.com/blindnet-io/devrel-management/issues/new?assignees=noelmace&labels=request%2Ctriage&template=request.yml&title=%5BRequest%5D%3A+
